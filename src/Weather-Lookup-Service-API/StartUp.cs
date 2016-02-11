@@ -1,6 +1,7 @@
 ﻿using System;
 using Owin;
 using WeatherLookupServiceAPI.Middleware;
+using Microsoft.Owin;
 
 namespace WeatherLookupServiceAPI
 {
@@ -26,10 +27,9 @@ namespace WeatherLookupServiceAPI
 			try
 			{
 				app.Map("/api/ping", x => x.Use<PingMiddleware>());
-				app.Map("/api/weatherstatusforeurope",
-					x => x.Use<WeatherMiddleware>(new WeatherClient(new Uri("http://weather-lookup-service/"))));
-				app.Map("/api/weatherstatusforasia", x => 
-						x.Use<WeatherMiddleware>(new WeatherClient(new Uri("http://weather-lookup-service/"))));
+
+				string[] urls = {"/api/weatherstatusforeurope","/api/weatherstatusforasia"};
+				app.Map<WeatherMiddleware>(urls);
 			}
 			catch(Exception ex)
 			{
@@ -50,6 +50,17 @@ namespace WeatherLookupServiceAPI
 			}
 
 			_disposed = true;
+		}
+	}
+
+	public static class MapExtensions
+	{
+		public static void Map<T>(this IAppBuilder app, string[] urls)
+		{
+			foreach(var url in urls)
+			{
+				app.Map(url, x => x.Use<T>(new WeatherClient(new Uri("http://weather-lookup-service/"))));
+			}
 		}
 	}
 }

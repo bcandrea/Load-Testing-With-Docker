@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather-Lookup-Service-API", "src\Weather-Lookup-Service-API\Weather-Lookup-Service-API.csproj", "{DBBB443B-CA9A-436E-BBC7-865C317D0318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather-Lookup-Service-API.Tests", "src\Weather-Lookup-Service-API.Tests\Weather-Lookup-Service-API.Tests.csproj", "{3842EC04-DC1D-4B4E-8830-0679865836B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ci-build", "ci-build", "{FE405DD6-01D8-413C-B4AF-7B7ECEF914AB}"
+	ProjectSection(SolutionItems) = preProject
+		ci-build\build.sh = ci-build\build.sh
+		ci-build\version.txt = ci-build\version.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "load-test", "load-test", "{0A00E59B-AB03-46DE-953B-16DD80C538E3}"
+	ProjectSection(SolutionItems) = preProject
+		load-test\Dockerfile = load-test\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stubs", "stubs", "{69F61724-6BB4-461B-B677-028D27765A26}"
+	ProjectSection(SolutionItems) = preProject
+		load-test\stubs\weatherlookupstubdata.yml = load-test\stubs\weatherlookupstubdata.yml
+		load-test\stubs\tokyo.json = load-test\stubs\tokyo.json
+		load-test\stubs\rome.json = load-test\stubs\rome.json
+		load-test\stubs\paris.json = load-test\stubs\paris.json
+		load-test\stubs\london.json = load-test\stubs\london.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "locust", "locust", "{E95625E2-4487-4BB6-8EDF-9520DD11D627}"
+	ProjectSection(SolutionItems) = preProject
+		locust\start.sh = locust\start.sh
+		locust\locustfile.py = locust\locustfile.py
+		locust\Dockerfile = locust\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{AFB876FA-EC87-4459-9273-2D061CF48A0E}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-stub.yml = docker-compose-stub.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3842EC04-DC1D-4B4E-8830-0679865836B8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3842EC04-DC1D-4B4E-8830-0679865836B8}.Debug|x86.Build.0 = Debug|Any CPU
+		{3842EC04-DC1D-4B4E-8830-0679865836B8}.Release|x86.ActiveCfg = Release|Any CPU
+		{3842EC04-DC1D-4B4E-8830-0679865836B8}.Release|x86.Build.0 = Release|Any CPU
+		{DBBB443B-CA9A-436E-BBC7-865C317D0318}.Debug|x86.ActiveCfg = Debug|x86
+		{DBBB443B-CA9A-436E-BBC7-865C317D0318}.Debug|x86.Build.0 = Debug|x86
+		{DBBB443B-CA9A-436E-BBC7-865C317D0318}.Release|x86.ActiveCfg = Release|x86
+		{DBBB443B-CA9A-436E-BBC7-865C317D0318}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69F61724-6BB4-461B-B677-028D27765A26} = {0A00E59B-AB03-46DE-953B-16DD80C538E3}
+	EndGlobalSection
+EndGlobal

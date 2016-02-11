@@ -1,0 +1,44 @@
+﻿
+-  request:
+     url: ^/weatherstatusforeurope/london$
+     method: GET
+
+   response:
+     status: 200
+     headers:
+       content-type: application/json
+       server: stubbedServer/4.2
+     file: london.json
+
+-  request:
+     url: ^/weatherstatusforeurope/paris$
+     method: GET
+
+   response:
+     status: 200
+     headers:
+       content-type: application/json
+       server: stubbedServer/4.2
+     file: paris.json
+
+-  request:
+     url: ^/weatherstatusforeurope/rome$
+     method: GET
+
+   response:
+     status: 200
+     headers:
+       content-type: application/json
+       server: stubbedServer/4.2
+     file: rome.json
+
+-  request:
+     url: ^/weatherstatusforasia/tokyo$
+     method: GET
+
+   response:
+     status: 200
+     headers:
+       content-type: application/json
+       server: stubbedServer/4.2
+     file: tokyo.json

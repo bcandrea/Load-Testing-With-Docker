@@ -1,0 +1,37 @@
+appstub:
+  image: christianbladescb/stubby-docker
+  ports:
+  - "80:80"
+  volumes:
+  - .:/build
+  working_dir: /build/load-test/stubs
+  entrypoint: [stubby, -d, weatherlookupstubdata.yml, -s, "80"]
+api:
+  image: mono:4.2.1
+  ports:
+  - "9050:9050"
+  volumes:
+  - .:/build
+  links:
+  - appstub:weather-lookup-service
+  command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
+locustmaster:
+  build: ./locust
+  environment:
+  - TARGET_HOST=http://localapi:9050
+  - LOCUST_NODE_TYPE=master
+  - LOCUST_FILE=locustfile.py
+  links:
+  - api:localapi
+  ports:
+  - "8089:8089"
+locustslave:
+  build: ./locust
+  environment:
+  - TARGET_HOST=http://localapi:9050
+  - LOCUST_NODE_TYPE=slave
+  - LOCUST_FILE=locustfile.py
+  command: "--master-host master"
+  links:
+  - api:localapi
+  - locustmaster:master

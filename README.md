@@ -32,11 +32,11 @@ Instructions on how to use:
     * Name - Locust Host Port 8089 IP - 127.0.0.1 Guest Port 8089
     * Name - Stub   Host Port 80   IP - 127.0.0.1 Guest Port 80
     
-6.  You need to build the software before load testing.  In the ci-build folder there is a bash file called build.sh, this script will build the code in docker.  The following command will run the build.
+6.  You need to build the software before load testing.  In the ci-build folder there is a bash file called build.sh, this script will build the code in docker.  The following command will run the build from the root directory of the project.
 
     * ./ci-build/build.sh
 
-7.  Next is to sin up the docker instances from the images.  At this point the images don't exist, so therefore the following command will invoke the downloading of the necessary support after you have completed the missing configuration in the Dockerfile and Docker Compose stub file.
+7.  Next is to sin up the docker instances from the images.  At this point the images don't exist, so therefore the following command from the root directory of the project will invoke the downloading of the necessary support after you have completed the missing configuration in the Dockerfile and Docker Compose stub file.
 
    * docker-compose -f docker-compose-stub.yml up -d
    

@@ -49,4 +49,4 @@ Instructions on how to use:
 7.  To stop the docker instance you can either stop or remove the container instances.  You may like to reset the containers before restarting or stop without removing.  The two following commnands manage both situations:
   
    * docker stop $(docker ps -aq)
-   * docker rm -f $(docker ps -qa)
+   * docker rm -f $(docker ps -aq)

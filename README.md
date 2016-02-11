@@ -1,5 +1,5 @@
-Load Testing with Docker Stubby
-===============================
+Load Testing with Docker
+========================
 
 This repository contains an API solution built to request and receive responses from a docker stubby instance containing weather data for London, Paris, Rome and Tokyo.  It is designed to demonstrate the use of docker for load testing using Locust. In addition provide an understanding about the configuration setup between Dockerfile and Docker Compose files.
 

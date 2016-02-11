@@ -3,7 +3,7 @@ Load Testing with Docker
 
 This repository contains an API solution built to request and receive responses from a docker stubby instance containing weather data for London, Paris, Rome and Tokyo.  It is designed to demonstrate the use of docker for load testing using Locust. In addition provide an understanding about the configuration setup between Dockerfile and Docker Compose files.
 
-However, for those new to docker, this will provide the first stepping stone to get familiar with the technology.  I have made it more interesting by not providing all the necessary configuration settings in the files.  Below I have provided pointers of where to find the information for the Dockerfile and Docker Compose configuration settings, but you have to the investigation to get instances spun up with locust to run the load test.
+However, for those new to docker, this will provide the first stepping stone to get familiar with the technology.  I have made it more interesting by not providing all the necessary configuration settings in the files.  Below I have provided pointers of where to find the information for the Dockerfile and Docker Compose configuration settings, but you have to do the investigation to get instances spun up with locust to run the load test.
 
 Instructions on how to use:
 ---------------------------

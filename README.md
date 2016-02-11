@@ -46,7 +46,9 @@ Instructions on how to use:
     
     This will list all the running containers and those that may have stopped.  You should see all the containers for the load test in a running state.  Take note of the STATUS column, this will inform how long the docker instance has been running and also if teh instances has stopped running.
     
-7.  To stop the docker instance you can either stop or remove the container instances.  You may like to reset the containers before restarting or stop without removing.  The two following commnands manage both situations:
+7.  To stop the docker instances you can either stop or remove the container instances.  The two following commnands manage both situations:
   
-   * docker stop $(docker ps -aq)
-   * docker rm -f $(docker ps -aq)
+   * docker stop $(docker ps -aq)   //Stop
+   * docker rm -f $(docker ps -aq)  //Remove
+
+8. To run the load test spin up the docker instances if not running as shown in step 5.  Open your browser of choice and go to http://localhost:8089.  Locust will open prompting you for the number of users and Hatch rate (users spawned/second). Type in 5 for users and 1 for the hatch rate.  Locust will use a python program to task wait each endpoint for the weather data requested.

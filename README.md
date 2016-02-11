@@ -57,4 +57,4 @@ Instructions on how to use:
    * to stop the instances:   docker stop $(docker ps -aq)
    * to remove the instances: docker rm -f $(docker ps -aq)
 
-11. To run the load test spin up the docker instances if not running as shown in step 7.  Open your browser of choice and go to http://localhost:8089.  Locust will open prompting you for the number of users and Hatch rate (users spawned/second). Type in 5 for users and 1 for the hatch rate.  Locust will use a python program to task wait each endpoint for the weather data requested.
+11. To run the load test spin up the docker instances if not running as shown in step 7.  Open your browser of choice and go to http://localhost:8089.  Locust will open prompting you for the number of users and Hatch rate (users spawned/second). Type in 5 for users and 1 for the hatch rate and select Start swarning.  Locust will use a python program to task wait each endpoint for the weather data requested.  Select the stop button to stop the load test.

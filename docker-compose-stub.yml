@@ -6,15 +6,6 @@ appstub:
   - .:/build
   working_dir: /build/load-test/stubs
   entrypoint: [stubby, -d, weatherlookupstubdata.yml, -s, "80"]
-api:
-  image: mono:4.2.1
-  ports:
-  - "9050:9050"
-  volumes:
-  - .:/build
-  links:
-  - appstub:weather-lookup-service
-  command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
 locustmaster:
   build: ./locust
   environment:

@@ -3,7 +3,7 @@ Load Testing with Docker
 
 This repository contains an API solution built to request and receive responses from a docker stubby instance containing weather data for London, Paris, Rome and Tokyo.  It is designed to demonstrate the use of docker for load testing using Locust. In addition provide an understanding about the configuration setup between Dockerfile and Docker Compose files.
 
-However, for those new to docker, this will provide the first stepping stone to get familiar with the technology.  I have made it more interesting by not providing all the necessary configuration settings in the files.  Below I have provided pointers of where to find the information for the Dockerfile and Docker Compose configuration settings, but you have to do the investigation to get instances spun up with locust to run the load test.
+However, for those new to docker, this will provide the first stepping stone to get familiar with the technology.  I have made it more interesting by not providing all the necessary configuration settings in the files.  Below I have provided help on where to place the configuration for the Dockerfile and Docker Compose configuration settings, this will help you set used to working with the Dockerfile and Docker Compose file.
 
 Instructions on how to use:
 ---------------------------
@@ -58,3 +58,31 @@ Instructions on how to use:
    * to remove the instances: docker rm -f $(docker ps -aq)
 
 11. To run the load test spin up the docker instances if not running as shown in step 7.  Open your browser of choice and go to http://localhost:8089.  Locust will open prompting you for the number of users and Hatch rate (users spawned/second). Type in 5 for users and 1 for the hatch rate and select Start swarning.  Locust will use a python program to task wait each endpoint for the weather data requested.  Select the stop button to stop the load test.
+
+12.   Amend the docker-compose-stub.yml file to include the following configuration:
+
+      api:
+         image: mono:4.2.1
+      ports:
+         - "9050:9050"
+      volumes:
+         - .:/build
+      links:
+         - appstub:weather-lookup-service
+      command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
+   
+      This section should follow the appstub section.
+   
+13.   Amend the Dockerfile file in the locust directory to include the following config:
+
+      RUN pip install locustio isodate pyzmq
+
+      ADD . /locust
+      WORKDIR /locust
+      
+      EXPOSE 8089 5557 5558
+      
+      ENTRYPOINT ["bash", "./start.sh"]
+      CMD []
+      
+      This will set the working directory and expose ports from the images and run the start bash.sh.

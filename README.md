@@ -61,19 +61,14 @@ Instructions on how to use:
 
 12.   Amend the docker-compose-stub.yml file to include the following configuration:
 
-      api:
-      
-         image: mono:4.2.1
-      ports:
-      
-         - "9050:9050"
-      volumes:
-      
-         - .:/build
-      links:
-      
-         - appstub:weather-lookup-service
-         
+      api:  
+         image: mono:4.2.1  
+      ports:  
+         - "9050:9050"  
+      volumes:  
+         - .:/build  
+      links:  
+         - appstub:weather-lookup-service  
       command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
    
       This section should follow the appstub section.

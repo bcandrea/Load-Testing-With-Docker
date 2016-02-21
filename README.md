@@ -63,7 +63,8 @@ Instructions on how to use:
 8. Before building the solution the nuget packages need downloading.  In the root directory of the solution run the following command.
 
    * nuget restore Weather-Lookup-Service.sln (Mac users)
-   * nuget install packages.config (Windows users)
+   * nuget install /src/Weather-Lookup-Service-API/packages.config (Windows users)
+   * nuget install /src/Weather-Lookup-Service-API.Tests/packages.config (Windows users)
     
 9.  You need to build the software before load testing.  In the ci-build folder there is a bash file called build.sh, this script will build the code in docker.  The following command will run the build from the root directory of the project.
 

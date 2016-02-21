@@ -22,29 +22,29 @@ Instructions on how to use:
 
 4.   Amend the docker-compose-stub.yml file to include the following configuration:
 
-      api:  
-         image: mono:4.2.1  
-      ports:  
-         - "9050:9050"  
-      volumes:  
-         - .:/build  
-      links:  
-         - appstub:weather-lookup-service  
-      command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
+         api:  
+            image: mono:4.2.1  
+            ports:  
+               - "9050:9050"  
+            volumes:  
+               - .:/build  
+            links:  
+               - appstub:weather-lookup-service  
+            command: mono /build/src/Weather-Lookup-Service-API/bin/Release/Weather-Lookup-Service-API.exe
    
-      This section should follow the appstub section.
+      This section should follow the appstub section.  The indentaton must be maintained to be processed.
       
 5.    Amend the Dockerfile file in the locust directory to include the following config:
 
-      RUN pip install locustio isodate pyzmq
-
-      ADD . /locust
-      WORKDIR /locust
-      
-      EXPOSE 8089 5557 5558
-      
-      ENTRYPOINT ["bash", "./start.sh"]
-      CMD []
+         RUN pip install locustio isodate pyzmq
+   
+         ADD . /locust
+         WORKDIR /locust
+         
+         EXPOSE 8089 5557 5558
+         
+         ENTRYPOINT ["bash", "./start.sh"]
+         CMD []
       
       This will set the working directory and expose ports from the images and run the start bash.sh.
 

@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ci-build", "ci-build", "{FE
 	ProjectSection(SolutionItems) = preProject
 		ci-build\build.sh = ci-build\build.sh
 		ci-build\version.txt = ci-build\version.txt
+		ci-build\publish.sh = ci-build\publish.sh
+		ci-build\package.sh = ci-build\package.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "load-test", "load-test", "{0A00E59B-AB03-46DE-953B-16DD80C538E3}"

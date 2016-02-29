@@ -84,9 +84,9 @@ Instructions on how to use:
 
     * docker ps -a
     
-    This will list all the running containers and those that may have stopped.  You should see all the containers for the load test in a running state.  Take note of the STATUS column, this will inform how long the docker instance has been running and also if teh instances has stopped running.
+    This will list all the running containers and those that may have stopped.  You should see all the containers for the load test in a running state.  Take note of the STATUS column, this will inform how long the docker instance has been running and also if the instances has stopped running.
     
-13.  To stop the docker instances you can either stop or remove the container instances.  The two following commnands manage both situations:
+13.  To stop the docker instances you can either stop or remove the container instances.  The two following commands manage each situation:
   
    * to stop the instances:   docker stop $(docker ps -aq)
    * to remove the instances: docker rm -f $(docker ps -aq)
